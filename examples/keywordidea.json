@@ -1,0 +1,59 @@
+{
+  "endpoint": "POST https://insight.gotrends.app/kw/keywordidea",
+  "request_keyword_seed": {
+    "geoTargetConstants": ["geoTargetConstants/2840"],
+    "language": "languageConstants/1000",
+    "keywordPlanNetwork": "GOOGLE_SEARCH",
+    "includeAdultKeywords": true,
+    "pageSize": 100,
+    "historicalMetricsOptions": {
+      "includeAverageCpc": true
+    },
+    "keywordSeed": {
+      "keywords": ["bags"]
+    }
+  },
+  "request_url_seed": {
+    "geoTargetConstants": ["geoTargetConstants/2840"],
+    "language": "languageConstants/1000",
+    "keywordPlanNetwork": "GOOGLE_SEARCH",
+    "includeAdultKeywords": true,
+    "pageSize": 100,
+    "historicalMetricsOptions": {
+      "includeAverageCpc": true
+    },
+    "urlSeed": {
+      "url": "https://www.nike.com"
+    }
+  },
+  "response_shape": {
+    "totalSize": 1780,
+    "nextPageToken": "<opaque-string-or-omitted-when-done>",
+    "results": [
+      {
+        "text": "bags",
+        "keywordAnnotations": [],
+        "keywordIdeaMetrics": {
+          "competition": "HIGH",
+          "competitionIndex": "100",
+          "avgMonthlySearches": "165000",
+          "averageCpcMicros": "7127819",
+          "lowTopOfPageBidMicros": "3079698",
+          "highTopOfPageBidMicros": "22154307",
+          "monthlySearchVolumes": [
+            {
+              "year": "2025",
+              "month": "AUGUST",
+              "monthlySearches": "135000"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "notes": [
+    "Use nextPageToken as pageToken on the next request to fetch all pages",
+    "urlSeed works for domain/URL-based ideas",
+    "Same metric fields as gethistorymetric, under keywordIdeaMetrics"
+  ]
+}

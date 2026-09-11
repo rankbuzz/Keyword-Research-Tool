@@ -1,0 +1,6 @@
+# Ignore OS / editor junk only — this repo is docs-only for now
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/

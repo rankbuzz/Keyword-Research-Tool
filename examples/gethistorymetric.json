@@ -1,0 +1,43 @@
+{
+  "endpoint": "POST https://insight.gotrends.app/kw/gethistorymetric",
+  "request": {
+    "keywords": ["bags"],
+    "includeAdultKeywords": true,
+    "geoTargetConstants": ["geoTargetConstants/2840"],
+    "language": "languageConstants/1000",
+    "keywordPlanNetwork": "GOOGLE_SEARCH",
+    "aggregateMetrics": {
+      "aggregateMetricTypes": ["DEVICE"]
+    },
+    "historicalMetricsOptions": {
+      "includeAverageCpc": true
+    }
+  },
+  "response_shape": {
+    "results": [
+      {
+        "text": "bags",
+        "keywordMetrics": {
+          "competition": "HIGH",
+          "competitionIndex": "100",
+          "avgMonthlySearches": "165000",
+          "averageCpcMicros": "7127819",
+          "lowTopOfPageBidMicros": "3079698",
+          "highTopOfPageBidMicros": "22154307",
+          "monthlySearchVolumes": [
+            {
+              "year": "2025",
+              "month": "AUGUST",
+              "monthlySearches": "135000"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "notes": [
+    "averageCpcMicros / 1000000 = USD CPC",
+    "empty geoTargetConstants = worldwide",
+    "optional yearMonthRange can return up to ~24 months"
+  ]
+}
