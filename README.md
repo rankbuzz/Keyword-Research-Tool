@@ -1,10 +1,20 @@
-# Keyword Research Tool — GoTrends API Notes
+# Keyword Research Tool — API Notes
 
-Private research notes: how we call **GoTrends** (`insight.gotrends.app`) and what data comes back.
+Private research notes: how we call upstream APIs and what data comes back.
 
 > Scope of this repo (for now): **API calling + findings only**. No app code yet.
 
+| Source | What we get | Docs |
+|--------|-------------|------|
+| **GoTrends** | Keyword volume, CPC, competition, trend, keyword ideas | This README (below) · [FINDINGS](docs/FINDINGS.md) |
+| **Keywords Everywhere** | DA, RD, backlinks count, traffic (ETV), keyword lists, backlink lists | [KEYWORDS-EVERYWHERE](docs/KEYWORDS-EVERYWHERE.md) |
+
+**DR** is **not** from KE — Ahrefs separate API (documented in KE doc).  
+**Keyword volume / ideas** are **GoTrends**, not KE.
+
 ---
+
+# Part 1 — GoTrends
 
 ## Base URL
 
@@ -199,3 +209,22 @@ More detail: [docs/FINDINGS.md](docs/FINDINGS.md) · example JSON: [examples/](e
 ## Reliability note
 
 Mid‑Aug 2026 the proxy briefly failed with Google Ads **v21 deprecated**. As of **11 Sep 2026** it works again on **v25**. If stats go empty, check for `UNSUPPORTED_VERSION` / deprecated errors from the same endpoints.
+
+---
+
+# Part 2 — Keywords Everywhere (domain metrics)
+
+Full detail: **[docs/KEYWORDS-EVERYWHERE.md](docs/KEYWORDS-EVERYWHERE.md)**
+
+Quick map:
+
+| UI | KE endpoint | Field |
+|----|-------------|-------|
+| DA | `get-domain-link-metrics` | `moz_domain_authority` |
+| RD | same | `moz_root_domains_to_subdomain` |
+| Backlinks (count) | same | `moz_external_pages_to_subdomain` |
+| Traffic | `get-domain-metrics` / `get-url-metrics` | `etv` |
+| Keyword list | `get-domain-keywords` / `get-url-keywords` | `data[]` |
+| Backlink list | `get-domain-backlinks` / `get-page-backlinks` | `backlinks[]` |
+
+Auth: `api_key` in JSON body. Bases: `data.keywordseverywhere.com` + `links.keywordseverywhere.com`.

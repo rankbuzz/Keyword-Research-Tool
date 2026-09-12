@@ -1,0 +1,40 @@
+{
+  "endpoint": "POST https://links.keywordseverywhere.com/service/get-domain-backlinks",
+  "headers": {
+    "Accept": "application/x.seometrics.v3+json",
+    "Content-Type": "application/json"
+  },
+  "request": {
+    "api_key": "YOUR_KE_KEY",
+    "domain": "moz.com",
+    "num": 100
+  },
+  "response_shape": {
+    "domain": "moz.com",
+    "time_taken": 0.42,
+    "backlinks": [
+      {
+        "domain_source": "example-blog.com",
+        "url_source": "https://example-blog.com/seo-tools",
+        "domain_target": "moz.com",
+        "url_target": "https://moz.com/",
+        "anchor_text": "Moz",
+        "harmonic_centrality": 0.0123,
+        "last_found_date": "2026-01-15"
+      }
+    ]
+  },
+  "page_variant": {
+    "endpoint": "POST .../get-page-backlinks",
+    "request": {
+      "api_key": "YOUR_KE_KEY",
+      "page": "https://moz.com/",
+      "num": 100
+    }
+  },
+  "notes": [
+    "Links host uses Accept v3",
+    "No offset pagination — one call returns up to num rows",
+    "Backlink COUNT for SERP badges comes from get-domain-link-metrics, not this list endpoint"
+  ]
+}

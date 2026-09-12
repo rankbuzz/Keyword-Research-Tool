@@ -1,0 +1,37 @@
+{
+  "endpoint": "POST https://data.keywordseverywhere.com/service/get-domain-metrics",
+  "headers": {
+    "Accept": "application/x.seometrics.v4+json",
+    "Content-Type": "text/plain;charset=UTF-8"
+  },
+  "request": {
+    "api_key": "YOUR_KE_KEY",
+    "domains": ["moz.com"],
+    "country": "us"
+  },
+  "response_shape": [
+    {
+      "domain": "moz.com",
+      "data": {
+        "etv": 125000,
+        "total_keywords": 48000
+      }
+    }
+  ],
+  "url_variant": {
+    "endpoint": "POST https://data.keywordseverywhere.com/service/get-url-metrics",
+    "request": {
+      "api_key": "YOUR_KE_KEY",
+      "urls": ["https://moz.com/learn/seo"],
+      "country": "us"
+    },
+    "data_fields": ["etv", "total_keywords"]
+  },
+  "field_map": {
+    "etv": "Traffic (estimated)",
+    "total_keywords": "Ranking keywords count"
+  },
+  "notes": [
+    "country is ISO-2 (us, gb, pk) — not Google Ads geo IDs"
+  ]
+}

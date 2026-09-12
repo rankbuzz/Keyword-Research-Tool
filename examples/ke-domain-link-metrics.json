@@ -1,0 +1,34 @@
+{
+  "endpoint": "POST https://data.keywordseverywhere.com/service/get-domain-link-metrics",
+  "headers": {
+    "Accept": "application/x.seometrics.v4+json",
+    "Content-Type": "text/plain;charset=UTF-8"
+  },
+  "request": {
+    "api_key": "YOUR_KE_KEY",
+    "domains": ["moz.com"]
+  },
+  "response_shape": [
+    {
+      "domain": "moz.com",
+      "data": {
+        "page_rank": 7,
+        "moz_domain_authority": 91,
+        "moz_spam_score": 1,
+        "moz_root_domains_to_subdomain": 150000,
+        "moz_external_pages_to_subdomain": 2000000
+      }
+    }
+  ],
+  "field_map": {
+    "moz_domain_authority": "DA",
+    "moz_root_domains_to_subdomain": "RD (referring domains)",
+    "moz_external_pages_to_subdomain": "Backlinks count",
+    "moz_spam_score": "Spam %",
+    "page_rank": "PR"
+  },
+  "notes": [
+    "Auth is api_key inside JSON body",
+    "Numeric examples are illustrative shape only"
+  ]
+}

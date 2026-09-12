@@ -1,0 +1,38 @@
+{
+  "endpoint": "POST https://data.keywordseverywhere.com/service/get-domain-keywords",
+  "headers": {
+    "Accept": "application/x.seometrics.v4+json",
+    "Content-Type": "application/json"
+  },
+  "request": {
+    "api_key": "YOUR_KE_KEY",
+    "domain": "moz.com",
+    "country": "us",
+    "num": 100
+  },
+  "response_shape": {
+    "domain": "moz.com",
+    "etv": 125000,
+    "total_keywords": 48000,
+    "data": [
+      {
+        "keyword": "seo",
+        "position": 3,
+        "etv": 12000
+      }
+    ]
+  },
+  "url_variant": {
+    "endpoint": "POST .../get-url-keywords",
+    "request": {
+      "api_key": "YOUR_KE_KEY",
+      "url": "https://moz.com/",
+      "country": "us",
+      "num": 100
+    }
+  },
+  "notes": [
+    "Exact domain/URL only — no parent-domain fallback in our usage",
+    "num caps how many keyword rows to fetch in one call"
+  ]
+}
